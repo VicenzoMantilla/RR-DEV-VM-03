@@ -1,30 +1,75 @@
 body{
-    background-image: url(imgs/fondo.jpeg);
+    background-image: url(/imgs/fondo.jpeg);
 }
 /* Header */
 #header{
-    height: 100%;
-    min-width: 15vw;
+    height: 20vh;
+    width: 100%;
     border: 1px solid red;
 }
 .contenedor{
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    min-width: 15vw;
+    width: 100%;
     margin: auto;
     border: 1px solid lightcoral;
 }
-/* Navbar */
-#navbar{
+.log-reg{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    width: 50%;
+    height: 5vh;
+    border-radius: 12px;
+}
+.buttons{
+    width: 20%;
+}
+.search{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     height: 100%;
-    min-width: 15vw;
-    margin: auto;
-    border: 1px solid green;
+}
+
+/* Navbar */
+.nav{
+    display: flex;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    border-radius: 12px;
+    background-color: #f89554;
 }
 .linkNav{
-    display: inline-flex;
-    justify-content: space-between;
+    width: 11vw;
+    list-style: none;
+    font-size: 2rem;
+    text-align: center;
+}
+.linkNav a{
+    padding: 0 1em;
+    align-items: center;
+    text-decoration: none;
+}
+.nav a:hover{
+    transition: 1ms;
+    background-color: #f2e2dd;
+    color: black;
+}
+.burgerMobile{
+    display: none;
 }
 /* Main */
 #main{
@@ -67,4 +112,8 @@ img{
     background-color: black;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+}
+.footerLists{
+    display: inline;
+    padding: 0 2em;
 }
