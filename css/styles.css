@@ -1,6 +1,7 @@
 body{
     background-image: url(/imgs/fondo.jpeg);
 }
+/* Header */
 #header{
     height: 100%;
     min-width: 15vw;
@@ -12,6 +13,7 @@ body{
     margin: auto;
     border: 1px solid lightcoral;
 }
+/* Navbar */
 #navbar{
     display: flex;
     flex-direction: row;
@@ -24,11 +26,11 @@ body{
     display: inline-flex;
     justify-content: space-between;
 }
+/* Main */
 #main{
     width: 95%;
     max-width: 1200px;
     margin: 0 auto;
-    border: 1px solid yellow;
 }
 .article{
     display: flex;
@@ -54,10 +56,15 @@ body{
 img{
     max-width: 100%;
 }
+/* Footer */
 #footer{
     display: flex;
     flex-wrap: wrap;
-    height: 50vh;
-    min-width: 15vw;
+    width: 95%;
+    height: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: black;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
