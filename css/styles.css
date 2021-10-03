@@ -6,6 +6,7 @@ body{
     height: 20vh;
     width: 100%;
     border: 1px solid red;
+    background-color: blanchedalmond;
 }
 .contenedor{
     display: flex;
@@ -37,40 +38,39 @@ body{
 
 /* Navbar */
 .nav{
-    display: flex;
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
+    height: 50px;
 }
 .nav ul{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    width: 89%;
+    height: 3em;
+    margin: 0 auto;
     padding: 0;
-    border-radius: 12px;
+    list-style: none;
     background-color: #f89554;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 .linkNav{
-    width: 11vw;
-    list-style: none;
-    font-size: 2rem;
-    text-align: center;
+    padding: 0 0.5em;
+    margin: 0 0.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 .linkNav a{
-    padding: 0 1em;
-    align-items: center;
+    cursor: pointer;
     text-decoration: none;
 }
-.nav a:hover{
+.nav ul li a:hover{
     transition: 1ms;
-    background-color: #f2e2dd;
-    color: black;
+    color: white;
 }
 .burgerMobile{
     display: none;
-}
+} 
 /* Main */
 #main{
     width: 95%;
@@ -103,17 +103,59 @@ img{
 }
 /* Footer */
 #footer{
-    display: flex;
-    flex-wrap: wrap;
     width: 95%;
     height: 95%;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: black;
+    background-color: lightseagreen;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
 .footerLists{
-    display: inline;
+    display: flex;
+    flex-flow: row wrap;
     padding: 0 2em;
+}
+.footerLists ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.listFooterLinks{
+    flex-flow: column;
+    width: 94.453px;
+    height: 26px;
+    margin-bottom: 8px;
+    padding-right: 16px;
+    list-style: none;
+    text-decoration: none;
+}
+.listFooterLinks a{
+    cursor: pointer;
+    font-size: .75rem;
+    letter-spacing: .09375rem;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+.listFooterLinks a:hover{
+    transition: 1ms;
+    color: #00CDFD;
+    text-decoration: underline;
+}
+.icons ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+}
+.listIcons{
+    margin: 1em 1em;
+}
+.listIcons img{
+    border-radius: 35%;
+}
+.listIcons img:hover{
+    transition: 1ms;
+    background-color: #00CDFD;
 }

@@ -4,8 +4,11 @@
         margin: 0.1em 0.1em;
     }
     .linkNav{
-        flex: 0 1 22%;
-        margin: 0 0.1em;
+        padding: 0 0.5em;
+        margin: 0 0.5em;
+        font-size: 0.7em;
+        font-weight: bold;
+        text-transform: uppercase;   
     }
 }
 @media only screen and (max-width: 480px) {
