@@ -32,6 +32,7 @@ body{
 }
 .logo{
     display: flex;
+    align-items: center;
 }
 .logo h1{
     font-family: QuicksandBold;
@@ -143,16 +144,78 @@ body{
     width: 20%;
 }
 .box3{
+    display: flex;
+    flex-direction: column;
     width: 71%;
 }
 img{
     max-width: 100%;
 }
 .text{
-    
     line-height: 1.5rem;
     letter-spacing: 1px;
     font-family: QuicksandRegular;
+    color: black;
+}
+.topNews{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4em;
+}
+.topNews a{
+    margin: 1em 0;
+    font-family: QuicksandRegular;
+    text-decoration: none;
+    color: black;
+}
+.topNews a:hover,
+.latest a:hover{
+    transition: all 1ms ease;
+    color: #047593;
+}
+.latestContainerNews{
+    display: flex;
+    flex-direction: row;
+}
+.latest{
+    width: 30%;
+    margin: 0 1em;
+}
+.latest a{
+    text-decoration: none;
+    font-family: QuicksandRegular;
+    font-size: 1rem;
+    color: black;
+}
+/* FORM */
+#form{
+    display: flex;
+    flex-direction: column;
+}
+#form label{
+    margin-bottom: 0.5em;
+    font-family: QuicksandBold;
+    text-transform: uppercase;
+    color: #1F162D;
+}
+#form input{
+    margin-bottom: 0.5em;
+    border: 2px solid rgba(0, 0, 0, 0.425);
+    border-radius: 20px;
+}
+.suscribeButton{
+    display: flex;
+    height: 30px;
+    margin-top: 0.5em;
+}
+.suscribe{
+    width: 100%;
+    font-family: QuicksandBold;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid rgba(0, 0, 0, 0.425);
+    border-radius: 20px;
+    background-color:rgba(229, 225, 242, 1);
 }
 /* Footer */
 #footer{

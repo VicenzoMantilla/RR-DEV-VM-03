@@ -8,6 +8,9 @@
     .buttons{
         margin-right: 0;
     }
+    .buttons button{
+        margin-right: 0;
+    }
     .article > *{
         flex: 1 1 35%;
         margin: 0.1em 0.1em;
