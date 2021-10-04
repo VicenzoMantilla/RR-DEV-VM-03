@@ -1,4 +1,13 @@
 @media screen and (min-width: 481px) and (max-width: 760px){
+    .log-reg{
+        justify-content: space-between;
+    }
+    .search{
+        display: none;
+    }
+    .buttons{
+        margin-right: 0;
+    }
     .article > *{
         flex: 1 1 35%;
         margin: 0.1em 0.1em;
@@ -11,7 +20,27 @@
         text-transform: uppercase;   
     }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 493px) {
+    .buttons{
+        display: none;
+    }
+    .search{
+        display: none;
+    }
+    .burgerMobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 1ms ease;
+    }
+    .lines{
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #fff;
+    }
     .nav{
         transition: 1ms;
         display: none;
@@ -27,5 +56,20 @@
         width: 95%;
         margin: 1em 0;
         padding: 0.2em 0.2em;
+    }
+    .text{
+        padding-left: 3px;
+    }
+    .footerLists{
+        display: none;
+    }
+    .icons ul{
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 325px) {
+    .logo h1{
+        transition: all 1ms ease-in;
+        display: none;
     }
 }
