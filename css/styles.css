@@ -73,6 +73,7 @@ body{
     line-height: 1;
     font-size: 1rem;
     outline: none;
+    cursor: pointer;
     color: #fff;
     border: 3px solid white;
     border-radius: 5px;
@@ -133,6 +134,9 @@ body{
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.mobileColumn{
+    display: none;
+}
 .box2{
     width: 46%;
 }
@@ -157,6 +161,17 @@ img{
     font-family: QuicksandRegular;
     color: black;
 }
+.publicity{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3em;
+}
+.ads:hover{
+    position:relative;
+    transform: scale(1.1);
+    z-index:999;
+    box-shadow: 4px 3px 10px 9px rgba(248,149,84,0.55);
+}
 .topNews{
     display: flex;
     flex-direction: column;
@@ -164,6 +179,7 @@ img{
 }
 .topNews a{
     margin: 1em 0;
+    cursor: pointer;
     font-family: QuicksandRegular;
     text-decoration: none;
     color: black;
@@ -185,6 +201,7 @@ img{
     text-decoration: none;
     font-family: QuicksandRegular;
     font-size: 1rem;
+    cursor: pointer;
     color: black;
 }
 /* FORM */
@@ -213,6 +230,7 @@ img{
     font-family: QuicksandBold;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer;
     border: 2px solid rgba(0, 0, 0, 0.425);
     border-radius: 20px;
     background-color:rgba(229, 225, 242, 1);
@@ -265,6 +283,7 @@ img{
     margin: 0;
 }
 .listIcons{
+    cursor: pointer;
     margin: 1em 1em;
 }
 .listIcons img{
