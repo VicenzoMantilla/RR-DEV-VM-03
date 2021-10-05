@@ -107,6 +107,9 @@
     .icons ul{
         padding: 0;
     }
+    .copyright{
+        display: none;
+    }
 }
 @media only screen and (max-width: 325px) {
     .logo h1{
