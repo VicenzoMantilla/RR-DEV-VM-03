@@ -223,6 +223,17 @@ h3{
     font-size: 1rem;
     text-transform: uppercase;
 }
+.sectionTitle{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.sectionTitle span{
+    width: 6px;
+    height: 20px;
+    margin-right: 3px;
+    background-color: #f89554;
+}
 /* FORM */
 #form{
     display: flex;
