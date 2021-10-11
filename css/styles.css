@@ -16,13 +16,13 @@ body{
     width: 100%;
     background-color: rgba(233, 206, 239, 0.6);
 }
-.contenedor{
+.container{
     display: flex;
     height: 100%;
     width: 100%;
     margin: auto;
 }
-.log-reg{
+.logReg{
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -323,7 +323,7 @@ h3{
     transition: 1ms;
     background-color:#047593;
 }
-.copyright{
+.copyRight{
     display: flex;
     align-items: center;
     text-align: center;
