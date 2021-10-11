@@ -59,7 +59,7 @@ body{
     color: #fff;
     border: 3px solid #1F162D;
     border-radius: 12px;
-    background-color : rgba(233, 206, 239, 0.3);
+    background-color: rgba(233, 206, 239, 0.3);
     background-image: url(/imgs/search.png);
     background-repeat: no-repeat;
     background-position: right;
@@ -86,7 +86,7 @@ body{
     color: #fff;
     border: 3px solid white;
     border-radius: 5px;
-    background-color : transparent;
+    background-color: transparent;
 }
 
 /* Navbar */
