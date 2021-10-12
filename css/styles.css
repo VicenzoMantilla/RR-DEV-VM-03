@@ -161,6 +161,9 @@ body{
     flex-direction: column;
     width: 71%;
 }
+video{
+    width: 100%;
+}
 img{
     max-width: 100%;
 }
