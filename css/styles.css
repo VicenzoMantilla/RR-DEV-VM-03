@@ -326,6 +326,7 @@ h3{
 .copyRight{
     display: flex;
     align-items: center;
+    margin-left: 4em;
     text-align: center;
     font-family: QuicksandRegular;
     color: #047593;

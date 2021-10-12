@@ -1,15 +1,9 @@
-@media screen and (min-width: 481px) and (max-width: 760px){
-    .log-reg{
+@media screen and (min-width: 601px) and (max-width: 900px){
+    .logReg{
         justify-content: space-between;
     }
     .search{
         display: none;
-    }
-    .buttons{
-        margin-right: 0;
-    }
-    .buttons button{
-        margin-right: 0;
     }
     .article > *{
         flex: 1 1 35%;
@@ -38,7 +32,11 @@
         box-shadow: 4px 3px 10px 9px rgba(248,149,84,0.55);
     }
 }
-@media only screen and (max-width: 493px){
+@media only screen and (max-width: 600px){
+    .logo h1{
+        transition: all 1ms ease-in;
+        display: none;
+    }
     .buttons{
         display: none;
     }
@@ -107,13 +105,7 @@
     .icons ul{
         padding: 0;
     }
-    .copyright{
-        display: none;
-    }
-}
-@media only screen and (max-width: 325px) {
-    .logo h1{
-        transition: all 1ms ease-in;
+    .copyRight{
         display: none;
     }
 }
