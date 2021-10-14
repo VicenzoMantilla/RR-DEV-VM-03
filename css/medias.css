@@ -31,6 +31,9 @@
         cursor: pointer;
         box-shadow: 4px 3px 10px 9px rgba(248,149,84,0.55);
     }
+    #newForm{
+        margin: 4em 1em;
+    }
 }
 @media only screen and (max-width: 600px){
     .logo h1{
@@ -107,5 +110,13 @@
     }
     .copyRight{
         display: none;
+    }
+    .newFormContainer{
+        display: block;
+    }
+    .columInpunts{
+        display: block;
+        width: auto;
+        padding: 0 2em;
     }
 }
