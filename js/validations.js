@@ -9,15 +9,17 @@ let zipCode= document.getElementById("zip");
 let adress= document.getElementById("adress");
 let age= document.getElementById("age");
 let cellphone= document.getElementById("cellphone");
-let message = document.getElementsByClassName("message")
+let message = document.getElementsByClassName("message");
+let register = document.getElementById("suscribeButton");
+let completeAuto = document.getElementById("completeAuto");
 /*-- ERRORS --*/
-function success(i){
+function success(i,text){
     message[i].classList.add('success');
-    message[i].innerHTML="all pass";
+    message[i].innerHTML= text;
 }
-function error(i){
+function error(i,text){
     message[i].classList.add('error');
-    message[i].innerHTML="all pass";
+    message[i].innerHTML= text;
 }
 function remove(i){
     message[i].classList.remove('error');
@@ -44,14 +46,23 @@ function nameVerify(){
 }
 Name.addEventListener("blur",()=>{
     if (nameVerify()){
-        success(0);
+        text= "Validated ield";
+        success(0,text);
     }else{
-        error(0);
+        text= "Name must contain a space and 6 characters."
+        error(0,text);
     }
 })
 Name.addEventListener("focus",()=>{
     remove(0);
+    
 })
+/*---- BONUS ---*/
+function dynamicText(e){
+    completeAuto.innerHTML= 'HELLO'+' '+e.target.value+'!';
+}
+Name.addEventListener("keydown",dynamicText);
+Name.addEventListener("keyup",dynamicText);
 /*--- EMAIL ---*/
 function emailVerify(){
     let emailControl = email.value;
@@ -72,9 +83,11 @@ function emailVerify(){
 }
 email.addEventListener("blur",()=>{
     if(emailVerify()){
-        success(1);
+        text = "Validated Field";
+        success(1,text);
     }else{
-        error(1);
+        text = "This email format is Incorrect, Try again";
+        error(1,text);
     }
 })
 email.addEventListener("focus",()=>{
@@ -102,9 +115,11 @@ function passwordVerify(){
 }
 password.addEventListener("blur",()=>{
     if (passwordVerify()){
-        success(2);
+        text= "Validated Field";
+        success(2,text);
     }else{
-        error(2);
+        text = "Password must contain at least 8 characters, a number, 1 uppercase letter & 1 lowercase letter";
+        error(2,text);
     }
 })
 password.addEventListener("focus",()=>{
@@ -125,9 +140,11 @@ function confirmVerify(){
 }
 confirmPassword.addEventListener("blur",()=>{
     if (confirmVerify()){
-        success(3);
+        text= "Validated Field";
+        success(3,text);
     }else{
-        error(3);
+        text = "The passwords are not equal";
+        error(3,text);
     }
 })
 confirmPassword.addEventListener("focus",()=>{
@@ -150,9 +167,11 @@ function idNumberVerify(){
 }
 idNumber.addEventListener("blur",()=>{
     if(idNumberVerify()){
-        success(4);
+        text= "Validated Field";
+        success(4,text);
     }else{
-        error(4);
+        text = "The number must have between 7 & 8 numbers";
+        error(4,text);
     }
 })
 idNumber.addEventListener("focus",()=>{
@@ -175,9 +194,11 @@ function cityVerify(){
 }
 city.addEventListener("blur",()=>{
     if(cityVerify()){
-        success(5);
+        text= "Validated Field";
+        success(5,text);
     }else{
-        error(5);
+        text = "The city must have at least 3 characters";
+        error(5,text);
     }
 })
 city.addEventListener("focus",()=>{
@@ -192,6 +213,7 @@ function zipVerify(){
         zipControl !== '' &&
         zipControl !== null &&
         zipControl.length >= 3 &&
+        zipControl.length <= 5 &&
         !zipControl.match(upperLetter) &&
         !zipControl.match(lowerLetter)
     ){
@@ -202,9 +224,11 @@ function zipVerify(){
 }
 zipCode.addEventListener("blur",()=>{
     if(zipVerify()){
-        success(6);
+        text= "Validated Field";
+        success(6,text);
     }else{
-        error(6);
+        text = "Zip code must have between 3 & 5 characters";
+        error(6,text);
     }
 })
 zipCode.addEventListener("focus",()=>{
@@ -230,9 +254,11 @@ function adressVerify(){
 }
 adress.addEventListener("blur",()=>{
     if(adressVerify()){
-        success(7);
+        text= "Validated Field";
+        success(7,text);
     }else{
-        error(7);
+        text = "The adress must have 5 characters, with numbers, letters & a space in the middle";
+        error(7,text);
     }
 })
 adress.addEventListener("focus",()=>{
@@ -245,7 +271,9 @@ function ageVerify(){
     if(
         ageControl !== '' &&
         ageControl !== null &&
+        !isNaN(ageControl) &&
         ageControl >= 18 &&
+        ageControl.indexOf('.') == -1 &&
         !ageControl.match(lettersContain)
     ){
         return true
@@ -255,9 +283,11 @@ function ageVerify(){
 }
 age.addEventListener("blur",()=>{
     if(ageVerify()){
-        success(8);
+        text= "Validated Field";
+        success(8,text);
     }else{
-        error(8);
+        text = "You must be 18 or older" ;
+        error(8,text);
     }
 })
 age.addEventListener("focus",()=>{
@@ -270,6 +300,7 @@ function cellphoneVerify(){
     if(
         cellphoneControl !== '' &&
         cellphoneControl !== null &&
+        !isNaN(cellphoneControl)&&
         cellphoneControl.length >= 7 &&
         cellphoneControl.indexOf(' ') == -1 &&
         !cellphoneControl.match(symbols)
@@ -281,12 +312,39 @@ function cellphoneVerify(){
 }
 cellphone.addEventListener("blur",()=>{
     if(cellphoneVerify()){
-        success(9);
+        text= "Validated Field";
+        success(9,text);
     }else{
-        error(9);
+        text = "Cellphone must have at least 7 numbers, with no special characters"; 
+        error(9,text);
     }
 })
 cellphone.addEventListener("focus",()=>{
     remove(9);
 })
 /* --- BUTTON ---- */
+function buttonVerify(){
+    let errorsMessages = [];
+    let validationPass = [];
+    let listErrors = document.getElementsByClassName("message");
+    let validData = document.querySelectorAll('.fields > input');
+    for(i=0 ; i < listErrors.length; i++){
+        if (listErrors[i].classList.contains("error")){
+            errorsMessages.push(listErrors[i].textContent);
+        }
+    }
+    for(i=0 ; i < listErrors.length; i++){
+        if (listErrors[i].classList.contains("success")){
+            validationPass.push(validData[i].value);
+        }
+    }
+    if(errorsMessages.length !== 0){
+        alert(errorsMessages);
+    }else{
+        alert(validationPass);
+    }
+}
+register.addEventListener("click",()=>{
+    buttonVerify();
+})
+

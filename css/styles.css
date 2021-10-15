@@ -374,7 +374,7 @@ h3{
     margin-top: 0.5em;
     width: 100%;
 }
-.suscribeButton{
+#suscribeButton{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -398,7 +398,7 @@ h3{
     height: 3vh;
     font-family: QuicksandRegular;
     font-weight: bold;
-    color: rgb(126, 253, 114);
+    color: rgb(86, 255, 71);
     border-radius: 7px;
     background-color:rgb(216, 255, 212);
 }
