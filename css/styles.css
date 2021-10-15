@@ -354,7 +354,7 @@ h3{
 .fields{
     display: flex;
     flex-flow: column;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
 }
 .fields label{
     margin-bottom: 0.5em;
@@ -363,9 +363,8 @@ h3{
     color: #1F162D;
 }
 .fields input{
-    margin-bottom: 0.5em;
     border: 2px solid rgba(0, 0, 0, 0.425);
-    border-radius: 20px;
+    border-radius: 7px;
 }
 .registerButton{
     display: flex;
@@ -388,4 +387,28 @@ h3{
     border: 2px solid rgba(0, 0, 0, 0.425);
     border-radius: 20px;
     background-color:rgba(229, 225, 242, 1);
+}
+.fields span{
+    height: 3vh;
+}
+.success{
+    opacity: 1;
+    transition: all 2ms ease-in;
+    padding-left: 10px;
+    height: 3vh;
+    font-family: QuicksandRegular;
+    font-weight: bold;
+    color: rgb(126, 253, 114);
+    border-radius: 7px;
+    background-color:rgb(216, 255, 212);
+}
+.error{
+    transition: all 10ms ease-in;
+    padding-left: 10px;
+    height: 3vh;
+    font-family: QuicksandRegular;
+    font-weight: bold;
+    color:rgb(255, 64, 64);
+    border-radius: 7px;
+    background-color:rgb(253, 185, 185);
 }
