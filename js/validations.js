@@ -87,8 +87,8 @@ function passwordVerify(){
     let lowerLetter = /[a-z]/;
     let numberContain = /[0-9]/;
     if(
-        passwordControl != '' &&
-        passwordControl != null &&
+        passwordControl !== '' &&
+        passwordControl !== null &&
         passwordControl.length >= 8 &&
         passwordControl.length <= 25 &&
         passwordControl.match(upperLetter) &&
@@ -114,8 +114,8 @@ password.addEventListener("focus",()=>{
 function confirmVerify(){
     let confirmControl = confirmPassword.value;
     if(
-        confirmControl != "" &&
-        confirmControl != null &&
+        confirmControl !== "" &&
+        confirmControl !== null &&
         confirmControl === password.value
     ){
         return true
@@ -135,6 +135,29 @@ confirmPassword.addEventListener("focus",()=>{
 })
 
 /*--- IDNUMBER ---*/
+function idNumberVerify(){
+    let idNumberControl = idNumber.value;
+    if(
+        idNumberControl !== '' &&
+        idNumberControl !== null &&
+        idNumberControl.length >= 7 &&
+        idNumberControl.length <= 8
+    ){
+        return true
+    }else{
+        return false
+    }
+}
+idNumber.addEventListener("blur",()=>{
+    if(idNumberVerify()){
+        success(4);
+    }else{
+        error(4);
+    }
+})
+idNumber.addEventListener("focus",()=>{
+    remove(4);
+})
 
 /*--- CITY ---*/
 
