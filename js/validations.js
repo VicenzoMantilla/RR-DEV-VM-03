@@ -111,6 +111,28 @@ password.addEventListener("focus",()=>{
     remove(2);
 })
 /*--- CONFIRMPASS ---*/
+function confirmVerify(){
+    let confirmControl = confirmPassword.value;
+    if(
+        confirmControl != "" &&
+        confirmControl != null &&
+        confirmControl === password.value
+    ){
+        return true
+    }else{
+        return false
+    }
+}
+confirmPassword.addEventListener("blur",()=>{
+    if (confirmVerify()){
+        success(3);
+    }else{
+        error(3);
+    }
+})
+confirmPassword.addEventListener("focus",()=>{
+    remove(3);
+})
 
 /*--- IDNUMBER ---*/
 
