@@ -1,3 +1,4 @@
+/* --- SELECTORS */
 let Name = document.getElementById("name");
 let email = document.getElementById("email");
 let password = document.getElementById("password");
@@ -9,7 +10,6 @@ let adress= document.getElementById("adress");
 let age= document.getElementById("age");
 let cellphone= document.getElementById("cellphone");
 let message = document.getElementsByClassName("message")
-
 /*-- ERRORS --*/
 function success(i){
     message[i].classList.add('success');
@@ -52,7 +52,7 @@ Name.addEventListener("blur",()=>{
 Name.addEventListener("focus",()=>{
     remove(0);
 })
-/*--- MAIL ---*/
+/*--- EMAIL ---*/
 function emailVerify(){
     let emailControl = email.value;
     let dotCom= /.com/;
@@ -158,13 +158,88 @@ idNumber.addEventListener("blur",()=>{
 idNumber.addEventListener("focus",()=>{
     remove(4);
 })
-
 /*--- CITY ---*/
-
+function cityVerify(){
+    let cityControl = city.value;
+    let numberContain = /[0-9]/;
+    if (
+        cityControl !== '' &&
+        cityControl !== null &&
+        cityControl.length >= 3 &&
+        !cityControl.match(numberContain)
+    ){
+        return true
+    }else{
+        return false
+    }
+}
+city.addEventListener("blur",()=>{
+    if(cityVerify()){
+        success(5);
+    }else{
+        error(5);
+    }
+})
+city.addEventListener("focus",()=>{
+    remove(5);
+})
 /*--- ZIP CODE ---*/
-
+function zipVerify(){
+    let zipControl = zipCode.value;
+    let upperLetter = /[A-Z]/;
+    let lowerLetter = /[a-z]/;
+    if(
+        zipControl !== '' &&
+        zipControl !== null &&
+        zipControl.length >= 3 &&
+        !zipControl.match(upperLetter) &&
+        !zipControl.match(lowerLetter)
+    ){
+        return true
+    }else{
+        return false
+    }
+}
+zipCode.addEventListener("blur",()=>{
+    if(zipVerify()){
+        success(6);
+    }else{
+        error(6);
+    }
+})
+zipCode.addEventListener("focus",()=>{
+    remove(6);
+})
 /*--- ADRESS ---*/
-
+function adressVerify(){
+    let adressControl = adress.value;
+    let numberContain = /[0-9]/;
+    let lettersContain = /[A-Za-z]/;
+    if(
+        adressControl !== '' &&
+        adressControl !== null &&
+        adressControl.length >= 5 &&
+        adressControl.indexOf(' ') >= 1 &&
+        adressControl.match(numberContain) &&
+        adressControl.match(lettersContain)
+    ){
+        return true
+    }else{
+        return false
+    }
+}
+adress.addEventListener("blur",()=>{
+    if(adressVerify()){
+        success(7);
+    }else{
+        error(7);
+    }
+})
+adress.addEventListener("focus",()=>{
+    remove(7);
+})
 /*--- AGE ---*/
 
 /*--- CELLPHONE ---*/
+
+/* --- BUTTON ---- */
