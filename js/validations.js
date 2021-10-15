@@ -239,7 +239,54 @@ adress.addEventListener("focus",()=>{
     remove(7);
 })
 /*--- AGE ---*/
-
+function ageVerify(){
+    let ageControl = age.value;
+    let lettersContain = /[A-Za-z]/;
+    if(
+        ageControl !== '' &&
+        ageControl !== null &&
+        ageControl >= 18 &&
+        !ageControl.match(lettersContain)
+    ){
+        return true
+    }else{
+        return false
+    }
+}
+age.addEventListener("blur",()=>{
+    if(ageVerify()){
+        success(8);
+    }else{
+        error(8);
+    }
+})
+age.addEventListener("focus",()=>{
+    remove(8);
+})
 /*--- CELLPHONE ---*/
-
+function cellphoneVerify(){
+    let cellphoneControl = cellphone.value;
+    let symbols = /(-)/;
+    if(
+        cellphoneControl !== '' &&
+        cellphoneControl !== null &&
+        cellphoneControl.length >= 7 &&
+        cellphoneControl.indexOf(' ') == -1 &&
+        !cellphoneControl.match(symbols)
+    ){
+        return true
+    }else{
+        return false
+    }
+}
+cellphone.addEventListener("blur",()=>{
+    if(cellphoneVerify()){
+        success(9);
+    }else{
+        error(9);
+    }
+})
+cellphone.addEventListener("focus",()=>{
+    remove(9);
+})
 /* --- BUTTON ---- */
