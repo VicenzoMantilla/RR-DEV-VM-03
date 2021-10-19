@@ -12,7 +12,6 @@ var cellphone= document.getElementById('cellphone');
 var message = document.getElementsByClassName('message');
 var register = document.getElementById('suscribeButton');
 var completeAuto = document.getElementById('completeAuto');
-var emptyFlag = 0;
 /*-- ERRORS --*/
 function successValidation(i,text){
     message[i].classList.add('success');
@@ -37,7 +36,7 @@ function nameVerify(){
         nameControl.length > 0 &&
         nameControl.length >= 8 &&
         nameControl.indexOf(' ') >= 1 &&
-        !nameControl.match(symbolsName)&&
+        !nameControl.match(symbolsName) &&
         !nameControl.match(numbersName)
         ){
         return true;
@@ -151,7 +150,6 @@ confirmPassword.addEventListener('blur',()=>{
 confirmPassword.addEventListener('focus',()=>{
     removeMessage(3);
 })
-
 /*--- IDNUMBER ---*/
 function idNumberVerify(){
     let idNumberControl = idNumber.value;
@@ -301,7 +299,7 @@ function cellphoneVerify(){
     if(
         cellphoneControl !== '' &&
         cellphoneControl !== null &&
-        !isNaN(cellphoneControl)&&
+        !isNaN(cellphoneControl) &&
         cellphoneControl.length >= 7 &&
         cellphoneControl.indexOf(' ') == -1 &&
         !cellphoneControl.match(symbols)
@@ -345,6 +343,19 @@ function buttonVerify(){
         alert(validationPass);
     }
 }
+/* --- FORM VALIDATION ---*/
+function formEmpty(){
+    let emptyFields = document.querySelectorAll('.fields > input');
+    for( i = 0 ; i < emptyFields.length ; i++){
+        if (emptyFields[i].value == '' || emptyFields[i].value == null){
+            return true;
+        }
+    }
+}
 register.addEventListener('click',()=>{
-    buttonVerify();
+    if(formEmpty()){
+        alert('Fields cannot be left empty');
+    }else{
+        buttonVerify();
+    }
 })
