@@ -1,34 +1,35 @@
 /* --- SELECTORS */
-let Name = document.getElementById("name");
-let email = document.getElementById("email");
-let password = document.getElementById("password");
-let confirmPassword= document.getElementById("confirmPassword");
-let idNumber= document.getElementById("idNumber");
-let city= document.getElementById("city");
-let zipCode= document.getElementById("zip");
-let adress= document.getElementById("adress");
-let age= document.getElementById("age");
-let cellphone= document.getElementById("cellphone");
-let message = document.getElementsByClassName("message");
-let register = document.getElementById("suscribeButton");
-let completeAuto = document.getElementById("completeAuto");
+var Name = document.getElementById('name');
+var email = document.getElementById('email');
+var password = document.getElementById('password');
+var confirmPassword= document.getElementById('confirmPassword');
+var idNumber= document.getElementById('idNumber');
+var city= document.getElementById('city');
+var zipCode= document.getElementById('zip');
+var adress= document.getElementById('adress');
+var age= document.getElementById('age');
+var cellphone= document.getElementById('cellphone');
+var message = document.getElementsByClassName('message');
+var register = document.getElementById('suscribeButton');
+var completeAuto = document.getElementById('completeAuto');
+var emptyFlag = 0;
 /*-- ERRORS --*/
-function success(i,text){
+function successValidation(i,text){
     message[i].classList.add('success');
-    message[i].innerHTML= text;
+    message[i].innerHTML = text;
 }
 function error(i,text){
     message[i].classList.add('error');
-    message[i].innerHTML= text;
+    message[i].innerHTML = text;
 }
-function remove(i){
+function removeMessage(i){
     message[i].classList.remove('error');
     message[i].classList.remove('success');
-    message[i].innerHTML=("");
+    message[i].innerHTML = ('');
 }
 /*--- NAME ---*/
 function nameVerify(){
-    let nameControl= Name.value;
+    let nameControl = Name.value;
     let symbolsName = /([@"'.?*+^$#])/;
     let numbersName = /[0-9]/;
     if (
@@ -39,59 +40,59 @@ function nameVerify(){
         !nameControl.match(symbolsName)&&
         !nameControl.match(numbersName)
         ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-Name.addEventListener("blur",()=>{
+Name.addEventListener('blur',()=>{
     if (nameVerify()){
-        text= "Validated ield";
-        success(0,text);
+        text = 'Validated field';
+        successValidation(0,text);
     }else{
-        text= "Name must contain a space and 6 characters."
+        text = 'Name must contain a space and 6 characters.'
         error(0,text);
     }
 })
-Name.addEventListener("focus",()=>{
-    remove(0);
+Name.addEventListener('focus',()=>{
+    removeMessage(0);
     
 })
 /*---- BONUS ---*/
 function dynamicText(e){
-    completeAuto.innerHTML= 'HELLO'+' '+e.target.value+'!';
+    completeAuto.innerHTML = 'HELLO'+' '+e.target.value+'!';
 }
-Name.addEventListener("keydown",dynamicText);
-Name.addEventListener("keyup",dynamicText);
+Name.addEventListener('keydown',dynamicText);
+Name.addEventListener('keyup',dynamicText);
 /*--- EMAIL ---*/
 function emailVerify(){
     let emailControl = email.value;
-    let dotCom= /.com/;
+    let dotCom = /.com/;
     let tag = /@/;
     let emailSymbols = /(?<=@)[a-z]/;
     if(
-        emailControl !== "" &&
+        emailControl !== '' &&
         emailControl.length >= 6 &&
         emailControl.match(dotCom) &&
         emailControl.match(tag) &&
         emailControl.match(emailSymbols)
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-email.addEventListener("blur",()=>{
+email.addEventListener('blur',()=>{
     if(emailVerify()){
-        text = "Validated Field";
-        success(1,text);
+        text = 'Validated Field';
+        successValidation(1,text);
     }else{
-        text = "This email format is Incorrect, Try again";
+        text = 'Email needs to have @, 6 characters and .com';
         error(1,text);
     }
 })
-email.addEventListener("focus",()=>{
-    remove(1);
+email.addEventListener('focus',()=>{
+    removeMessage(1);
 })
 /*--- PASSWORD ---*/
 function passwordVerify(){
@@ -108,47 +109,47 @@ function passwordVerify(){
         passwordControl.match(lowerLetter) &&
         passwordControl.match(numberContain)
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-password.addEventListener("blur",()=>{
+password.addEventListener('blur',()=>{
     if (passwordVerify()){
-        text= "Validated Field";
-        success(2,text);
+        text = 'Validated Field';
+        successValidation(2,text);
     }else{
-        text = "Password must contain at least 8 characters, a number, 1 uppercase letter & 1 lowercase letter";
+        text = 'Password needs to have 8 characters, a number, 1 uppercase letter & 1 lowercase letter';
         error(2,text);
     }
 })
-password.addEventListener("focus",()=>{
-    remove(2);
+password.addEventListener('focus',()=>{
+    removeMessage(2);
 })
 /*--- CONFIRMPASS ---*/
 function confirmVerify(){
     let confirmControl = confirmPassword.value;
     if(
-        confirmControl !== "" &&
+        confirmControl !== '' &&
         confirmControl !== null &&
         confirmControl === password.value
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-confirmPassword.addEventListener("blur",()=>{
+confirmPassword.addEventListener('blur',()=>{
     if (confirmVerify()){
-        text= "Validated Field";
-        success(3,text);
+        text = 'Validated Field';
+        successValidation(3,text);
     }else{
-        text = "The passwords are not equal";
+        text = 'The passwords are not equal';
         error(3,text);
     }
 })
-confirmPassword.addEventListener("focus",()=>{
-    remove(3);
+confirmPassword.addEventListener('focus',()=>{
+    removeMessage(3);
 })
 
 /*--- IDNUMBER ---*/
@@ -160,22 +161,22 @@ function idNumberVerify(){
         idNumberControl.length >= 7 &&
         idNumberControl.length <= 8
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-idNumber.addEventListener("blur",()=>{
+idNumber.addEventListener('blur',()=>{
     if(idNumberVerify()){
-        text= "Validated Field";
-        success(4,text);
+        text = 'Validated Field';
+        successValidation(4,text);
     }else{
-        text = "The number must have between 7 & 8 numbers";
+        text = 'The number must have between 7 & 8 numbers';
         error(4,text);
     }
 })
-idNumber.addEventListener("focus",()=>{
-    remove(4);
+idNumber.addEventListener('focus',()=>{
+    removeMessage(4);
 })
 /*--- CITY ---*/
 function cityVerify(){
@@ -187,22 +188,22 @@ function cityVerify(){
         cityControl.length >= 3 &&
         !cityControl.match(numberContain)
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-city.addEventListener("blur",()=>{
+city.addEventListener('blur',()=>{
     if(cityVerify()){
-        text= "Validated Field";
-        success(5,text);
+        text = 'Validated Field';
+        successValidation(5,text);
     }else{
-        text = "The city must have at least 3 characters";
+        text = 'The city must have at least 3 characters';
         error(5,text);
     }
 })
-city.addEventListener("focus",()=>{
-    remove(5);
+city.addEventListener('focus',()=>{
+    removeMessage(5);
 })
 /*--- ZIP CODE ---*/
 function zipVerify(){
@@ -217,22 +218,22 @@ function zipVerify(){
         !zipControl.match(upperLetter) &&
         !zipControl.match(lowerLetter)
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-zipCode.addEventListener("blur",()=>{
+zipCode.addEventListener('blur',()=>{
     if(zipVerify()){
-        text= "Validated Field";
-        success(6,text);
+        text = 'Validated Field';
+        successValidation(6,text);
     }else{
-        text = "Zip code must have between 3 & 5 characters";
+        text = 'Zip code must have between 3 & 5 characters';
         error(6,text);
     }
 })
-zipCode.addEventListener("focus",()=>{
-    remove(6);
+zipCode.addEventListener('focus',()=>{
+    removeMessage(6);
 })
 /*--- ADRESS ---*/
 function adressVerify(){
@@ -247,22 +248,22 @@ function adressVerify(){
         adressControl.match(numberContain) &&
         adressControl.match(lettersContain)
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-adress.addEventListener("blur",()=>{
+adress.addEventListener('blur',()=>{
     if(adressVerify()){
-        text= "Validated Field";
-        success(7,text);
+        text = 'Validated Field';
+        successValidation(7,text);
     }else{
-        text = "The adress must have 5 characters, with numbers, letters & a space in the middle";
+        text = 'Address needs to have numbers,5 characters, letters & a space in the middle';
         error(7,text);
     }
 })
-adress.addEventListener("focus",()=>{
-    remove(7);
+adress.addEventListener('focus',()=>{
+    removeMessage(7);
 })
 /*--- AGE ---*/
 function ageVerify(){
@@ -276,22 +277,22 @@ function ageVerify(){
         ageControl.indexOf('.') == -1 &&
         !ageControl.match(lettersContain)
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-age.addEventListener("blur",()=>{
+age.addEventListener('blur',()=>{
     if(ageVerify()){
-        text= "Validated Field";
-        success(8,text);
+        text = 'Validated Field';
+        successValidation(8,text);
     }else{
-        text = "You must be 18 or older" ;
+        text = 'You must be 18 or older';
         error(8,text);
     }
 })
-age.addEventListener("focus",()=>{
-    remove(8);
+age.addEventListener('focus',()=>{
+    removeMessage(8);
 })
 /*--- CELLPHONE ---*/
 function cellphoneVerify(){
@@ -305,36 +306,36 @@ function cellphoneVerify(){
         cellphoneControl.indexOf(' ') == -1 &&
         !cellphoneControl.match(symbols)
     ){
-        return true
+        return true;
     }else{
-        return false
+        return false;
     }
 }
-cellphone.addEventListener("blur",()=>{
+cellphone.addEventListener('blur',()=>{
     if(cellphoneVerify()){
-        text= "Validated Field";
-        success(9,text);
+        text = 'Validated Field';
+        successValidation(9,text);
     }else{
-        text = "Cellphone must have at least 7 numbers, with no special characters"; 
+        text = 'Cellphone needs to have 7 numbers, with no special characters'; 
         error(9,text);
     }
 })
-cellphone.addEventListener("focus",()=>{
-    remove(9);
+cellphone.addEventListener('focus',()=>{
+    removeMessage(9);
 })
 /* --- BUTTON ---- */
 function buttonVerify(){
     let errorsMessages = [];
     let validationPass = [];
-    let listErrors = document.getElementsByClassName("message");
+    let listErrors = document.getElementsByClassName('message');
     let validData = document.querySelectorAll('.fields > input');
     for(i=0 ; i < listErrors.length; i++){
-        if (listErrors[i].classList.contains("error")){
+        if (listErrors[i].classList.contains('error')){
             errorsMessages.push(listErrors[i].textContent);
         }
     }
     for(i=0 ; i < listErrors.length; i++){
-        if (listErrors[i].classList.contains("success")){
+        if (listErrors[i].classList.contains('success')){
             validationPass.push(validData[i].value);
         }
     }
@@ -344,7 +345,6 @@ function buttonVerify(){
         alert(validationPass);
     }
 }
-register.addEventListener("click",()=>{
+register.addEventListener('click',()=>{
     buttonVerify();
 })
-
