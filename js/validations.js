@@ -329,12 +329,12 @@ function buttonVerify(){
     let validData = document.querySelectorAll('.fields > input');
     for(i=0 ; i < listErrors.length; i++){
         if (listErrors[i].classList.contains('error')){
-            errorsMessages.push(listErrors[i].textContent);
+            errorsMessages.push(listErrors[i].textContent + '\n');
         }
     }
     for(i=0 ; i < listErrors.length; i++){
         if (listErrors[i].classList.contains('success')){
-            validationPass.push(validData[i].value);
+            validationPass.push(validData[i].value + '\n');
         }
     }
     if(errorsMessages.length !== 0){
