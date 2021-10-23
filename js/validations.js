@@ -12,6 +12,7 @@ var cellphone= document.getElementById('cellphone');
 var message = document.getElementsByClassName('message');
 var register = document.getElementById('suscribeButton');
 var completeAuto = document.getElementById('completeAuto');
+var closeModal = document.getElementById('closeButton');
 /*-- ERRORS --*/
 function successValidation(i,text){
     message[i].classList.add('success');
@@ -325,6 +326,8 @@ cellphone.addEventListener('focus',()=>{
 function buttonVerify(){
     let errorsMessages = [];
     let validationPass = [];
+    let tryy = document.getElementById('tryy');
+    let modelContainer = document.getElementsByClassName('modelContainer');
     let listErrors = document.getElementsByClassName('message');
     let validData = document.querySelectorAll('.fields > input');
     for(i=0 ; i < listErrors.length; i++){
@@ -338,15 +341,73 @@ function buttonVerify(){
         }
     }
     if(errorsMessages.length !== 0){
-        alert(errorsMessages);
+        for( i = 0 ; i < errorsMessages.length ; i++){
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(errorsMessages[i]));
+        tryy.appendChild(li);
+        }
+        modelContainer[0].classList.add('active');
     }else{
-        alert(validationPass);
+        apiRequest();
     }
 }
+/*--- API GET --- */
+function apiRequest(){
+    let url = 'http://curso-dev-2021.herokuapp.com/newsletter?'+
+    'name='+`${Name.value}`+
+    '&email='+`${email.value}`+
+    '&password='+`${password.value}`+
+    '&confirmed='+`${confirmPassword.value}`+
+    '&id='+`${idNumber.value}`+
+    '&city='+`${city.value}`+
+    '&zip='+`${zipCode.value}`+
+    '&adress='+`${adress.value}`+
+    '&age='+`${age.value}`+
+    '&cellphone='+`${cellphone.value}`
+    fetch(url)
+        .then((res)=>{
+            return res.json();
+        })
+        .then((data)=>{
+            modalPass(data);
+        })
+        .catch((error)=> console.log(error))
+}
+function modalPass(data){
+    let tryy = document.getElementById('tryy');
+    let modelContainer = document.getElementsByClassName('modelContainer');
+    let dataResponse = [
+        Name = data.name,
+        email = data.email,
+        password= data.password,
+        retryPassword= data.confirmed,
+        id= data.id,
+        city= data.city,
+        zip= data.zip,
+        adress= data.adress,
+        age= data.age,
+        cellphone= data.cellphone
+    ];
+    for( i = 0 ; i < dataResponse.length ; i++){
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(dataResponse[i]));
+        tryy.appendChild(li);  
+    }
+    modelContainer[0].classList.add('active');
+} 
+closeModal.addEventListener('click',()=>{
+    let modelContainer = document.getElementsByClassName('modelContainer');
+    let remove = document.getElementById('tryy');
+    while(remove.hasChildNodes()){
+        remove.removeChild(remove.firstChild);
+    }
+    modelContainer[0].classList.remove('active');
+
+})
 /* --- FORM VALIDATION ---*/
 function formEmpty(){
     let emptyFields = document.querySelectorAll('.fields > input');
-    for( i = 0 ; i < emptyFields.length ; i++){
+    for( i = 0 ; i < emptyFields.length ; i++ ){
         if (emptyFields[i].value == '' || emptyFields[i].value == null){
             return true;
         }
