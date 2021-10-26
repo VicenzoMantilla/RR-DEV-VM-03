@@ -431,11 +431,30 @@ h3{
     justify-content: space-between;
     align-items: center;
     position: relative;
-    width: 30%;
-    height: 30%;
+    width: 50%;
     background-color: #FFF;
+}
+.model > ul{
+    padding: 0;
+    list-style: none;
+}
+.model > ul > li{
+    margin-bottom: 0.4em;
+    font-family: QuicksandRegular;
 }
 .active{
     visibility: visible;
     opacity: 1;
+}
+#closeButton{
+    width: 50%;
+    height: 25px;
+    margin-bottom: 10px;
+    font-family: QuicksandBold;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.425);
+    border-radius: 20px;
+    background-color:rgba(229, 225, 242, 1);
 }

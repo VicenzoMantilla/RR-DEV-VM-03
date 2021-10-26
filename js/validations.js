@@ -13,6 +13,7 @@ var message = document.getElementsByClassName('message');
 var register = document.getElementById('suscribeButton');
 var completeAuto = document.getElementById('completeAuto');
 var closeModal = document.getElementById('closeButton');
+var messageModal = document.getElementById('modalMessage');
 /*-- ERRORS --*/
 function successValidation(i,text){
     message[i].classList.add('success');
@@ -326,7 +327,7 @@ cellphone.addEventListener('focus',()=>{
 function buttonVerify(){
     let errorsMessages = [];
     let validationPass = [];
-    let tryy = document.getElementById('tryy');
+    let newItem = document.getElementById('ul');
     let modelContainer = document.getElementsByClassName('modelContainer');
     let listErrors = document.getElementsByClassName('message');
     let validData = document.querySelectorAll('.fields > input');
@@ -344,8 +345,9 @@ function buttonVerify(){
         for( i = 0 ; i < errorsMessages.length ; i++){
         let li = document.createElement('li');
         li.appendChild(document.createTextNode(errorsMessages[i]));
-        tryy.appendChild(li);
+        newItem.appendChild(li);
         }
+        messageModal.innerHTML='These fields are incorrect, please complete again';
         modelContainer[0].classList.add('active');
     }else{
         apiRequest();
@@ -353,7 +355,7 @@ function buttonVerify(){
 }
 /*--- API GET --- */
 function apiRequest(){
-    let url = 'http://curso-dev-2021.herokuapp.com/newsletter?'+
+    let url = 'https://curso-dev-2021.herokuapp.com/newsletter?'+
     'name='+`${Name.value}`+
     '&email='+`${email.value}`+
     '&password='+`${password.value}`+
@@ -370,37 +372,56 @@ function apiRequest(){
         })
         .then((data)=>{
             modalPass(data);
+            localStorage.setItem('userInfo',JSON.stringify(data));
         })
-        .catch((error)=> console.log(error))
+        .catch((error)=> modalError(error))
 }
 function modalPass(data){
-    let tryy = document.getElementById('tryy');
+    let newItem = document.getElementById('ul');
     let modelContainer = document.getElementsByClassName('modelContainer');
-    let dataResponse = [
-        Name = data.name,
-        email = data.email,
-        password= data.password,
-        retryPassword= data.confirmed,
-        id= data.id,
-        city= data.city,
-        zip= data.zip,
-        adress= data.adress,
-        age= data.age,
-        cellphone= data.cellphone
-    ];
-    for( i = 0 ; i < dataResponse.length ; i++){
+    for( var property in data){
         let li = document.createElement('li');
-        li.appendChild(document.createTextNode(dataResponse[i]));
-        tryy.appendChild(li);  
+        li.appendChild(document.createTextNode(data[property]));
+        newItem.appendChild(li); 
     }
+    localStorage.setItem('userData',JSON.stringify(data));
+    messageModal.innerHTML='You have been subscribed';
     modelContainer[0].classList.add('active');
-} 
+}
+function modalError(error){
+    let newItem = document.getElementById('ul');
+    let modelContainer = document.getElementsByClassName('modelContainer');
+    for( var property in error){
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(error[property]));
+        newItem.appendChild(li); 
+    }
+    messageModal.innerHTML='Your subscription has failed';
+    modelContainer[0].classList.add('active');
+}
+window.addEventListener('load',()=>{
+    let inputs = document.querySelectorAll('.fields > input');
+    let userInfo = JSON.parse(localStorage.getItem('userData'));
+    if( userInfo !== null){
+        inputs[0].value = userInfo.name;
+		inputs[1].value = userInfo.email;
+		inputs[2].value = userInfo.password;
+		inputs[3].value = userInfo.confirmed;
+		inputs[4].value = userInfo.id;
+		inputs[5].value = userInfo.city;
+		inputs[6].value = userInfo.zip;
+		inputs[7].value = userInfo.adress;
+		inputs[8].value = userInfo.age;
+		inputs[9].value = userInfo.cellphone;
+    }
+})
 closeModal.addEventListener('click',()=>{
     let modelContainer = document.getElementsByClassName('modelContainer');
-    let remove = document.getElementById('tryy');
+    let remove = document.getElementById('ul');
     while(remove.hasChildNodes()){
         remove.removeChild(remove.firstChild);
     }
+    messageModal.innerHTML='';
     modelContainer[0].classList.remove('active');
 
 })
