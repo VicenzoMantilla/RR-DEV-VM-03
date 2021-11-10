@@ -48,8 +48,6 @@ function nameVerify(){
 }
 Name.addEventListener('blur',()=>{
     if (nameVerify()){
-        text = 'Validated field';
-        successValidation(0,text);
     }else{
         text = 'Name must contain a space and 6 characters.'
         error(0,text);
@@ -85,8 +83,6 @@ function emailVerify(){
 }
 email.addEventListener('blur',()=>{
     if(emailVerify()){
-        text = 'Validated Field';
-        successValidation(1,text);
     }else{
         text = 'Email needs to have @, 6 characters and .com';
         error(1,text);
@@ -117,8 +113,6 @@ function passwordVerify(){
 }
 password.addEventListener('blur',()=>{
     if (passwordVerify()){
-        text = 'Validated Field';
-        successValidation(2,text);
     }else{
         text = 'Password needs to have 8 characters, a number, 1 uppercase letter & 1 lowercase letter';
         error(2,text);
@@ -142,8 +136,6 @@ function confirmVerify(){
 }
 confirmPassword.addEventListener('blur',()=>{
     if (confirmVerify()){
-        text = 'Validated Field';
-        successValidation(3,text);
     }else{
         text = 'The passwords are not equal';
         error(3,text);
@@ -168,8 +160,6 @@ function idNumberVerify(){
 }
 idNumber.addEventListener('blur',()=>{
     if(idNumberVerify()){
-        text = 'Validated Field';
-        successValidation(4,text);
     }else{
         text = 'The number must have between 7 & 8 numbers';
         error(4,text);
@@ -195,8 +185,6 @@ function cityVerify(){
 }
 city.addEventListener('blur',()=>{
     if(cityVerify()){
-        text = 'Validated Field';
-        successValidation(5,text);
     }else{
         text = 'The city must have at least 3 characters';
         error(5,text);
@@ -225,8 +213,6 @@ function zipVerify(){
 }
 zipCode.addEventListener('blur',()=>{
     if(zipVerify()){
-        text = 'Validated Field';
-        successValidation(6,text);
     }else{
         text = 'Zip code must have between 3 & 5 characters';
         error(6,text);
@@ -255,8 +241,6 @@ function adressVerify(){
 }
 adress.addEventListener('blur',()=>{
     if(adressVerify()){
-        text = 'Validated Field';
-        successValidation(7,text);
     }else{
         text = 'Address needs to have numbers,5 characters, letters & a space in the middle';
         error(7,text);
@@ -284,8 +268,6 @@ function ageVerify(){
 }
 age.addEventListener('blur',()=>{
     if(ageVerify()){
-        text = 'Validated Field';
-        successValidation(8,text);
     }else{
         text = 'You must be 18 or older';
         error(8,text);
@@ -313,8 +295,6 @@ function cellphoneVerify(){
 }
 cellphone.addEventListener('blur',()=>{
     if(cellphoneVerify()){
-        text = 'Validated Field';
-        successValidation(9,text);
     }else{
         text = 'Cellphone needs to have 7 numbers, with no special characters'; 
         error(9,text);
@@ -423,7 +403,6 @@ closeModal.addEventListener('click',()=>{
     }
     messageModal.innerHTML='';
     modelContainer[0].classList.remove('active');
-
 })
 /* --- FORM VALIDATION ---*/
 function formEmpty(){

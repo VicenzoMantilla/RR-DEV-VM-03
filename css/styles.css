@@ -397,6 +397,7 @@ h3{
     transition: all 3ms ease-in;
     padding: 3px 8px;
     font-family: QuicksandRegular;
+    font-size: 0.8rem;
     font-weight: bold;
     color: rgb(86, 255, 71);
     border-radius: 7px;
@@ -406,10 +407,10 @@ h3{
     transition: all 3ms ease-in;
     padding: 3px 8px;
     font-family: QuicksandRegular;
+    font-size: 0.8rem;
     font-weight: bold;
     color:rgb(255, 64, 64);
     border-radius: 7px;
-    background-color:rgb(253, 185, 185);
 }
 /*--- MODAL --- */
 .modelContainer{
@@ -432,6 +433,8 @@ h3{
     align-items: center;
     position: relative;
     padding: 1em;
+    border-radius: 7px;
+    box-shadow: 0 0 15px 3px;
     background-color: #FFF;
 }
 .model > ul{
